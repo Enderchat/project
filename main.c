@@ -5,19 +5,19 @@
 
 int main() 
 {
-    int a[SIZE];
-    int b[SIZE];
+    int massiv[SIZE];
+    int massiv2[SIZE];
 
-    set_mass(&a, SIZE);
+    set_mass(&massiv, SIZE);
     printf("\n");
-    print_mass(a, SIZE);
-    printf("\n %d",  mass_maximum(a, SIZE));
-    printf("\n %d", mass_minimum(a, SIZE));
-    printf("\n");
-    mass_switch(a, SIZE);
-    printf("\n etot element zanyt %d", search_elementa(a, SIZE, 10));
-    set_mass(&b, SIZE2);
-    printf("\n %d", equal(a, SIZE, b, SIZE2));
-    
+    print_mass(massiv, SIZE);
+    printf("%d",  mass_maximum(massiv, SIZE));
+    printf("\n %d \n", mass_minimum(massiv, SIZE));
+    mass_switch(massiv, SIZE);
+    printf("\n %d \n", search_elementa(massiv, SIZE, 10));
+    set_mass(&massiv2, SIZE2);
+    printf("\n %d", equal(massiv, SIZE, massiv2, SIZE2));
+    buble_sort(massiv, SIZE);
+    print_mass(massiv, SIZE);
 }
 
