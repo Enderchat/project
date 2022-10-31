@@ -15,8 +15,9 @@ int main()
     printf("\n %d", mass_minimum(a, SIZE));
     printf("\n");
     mass_switch(a, SIZE);
-    printf("\n etot element zanyt %d", search_elementa(a, SIZE));
+    printf("\n etot element zanyt %d", search_elementa(a, SIZE, 10));
     set_mass(&b, SIZE2);
     printf("\n %d", equal(a, SIZE, b, SIZE2));
     
 }
+

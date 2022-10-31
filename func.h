@@ -8,7 +8,7 @@ void mass_switch(const int a[], const int size);
 void mass_lenght(const int a[], const int size);
 int mass_maximum(const int a[], const int size);
 int mass_minimum(const int a[], const int size);
-int search_elementa(const int a[], const int size);
+int search_elementa(const int a[],const int size, const int number);
 int equal(const int a[], const int size, const int b[], const int size2);
 
 #endif //_FUNC_H_

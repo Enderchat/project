@@ -5,7 +5,7 @@
 void set_mass(int *a,const int size){
     int i;
     for(i = 0; i < size; i++){
-        scanf("%d", a[i]);
+        scanf("%d", a + i);
         setbuf(stdin, NULL);
     }
 }
@@ -17,6 +17,7 @@ void print_mass(const int a[],const int size){
     }
     printf("\n");
 }
+
 int mass_maximum(const int a[],const int size){
     int maximum = a[0];
     int i;
@@ -27,6 +28,7 @@ int mass_maximum(const int a[],const int size){
     }
     return maximum;
 }
+
 int mass_minimum(const int a[],const int size)
 {
     int minimum = a[1];
@@ -48,23 +50,31 @@ void mass_switch(const int a[],const int size)
     }
     print_mass(a2, size);
 }
-int search_elementa(const int a[],const int size,int element){
 
-    int element = 0;
-    printf("Vvedi element massiva: ");
-    scanf("%d", &element);
-    setbuf(stdin,NULL);
+int search_elementa(const int a[],const int size, const int number){
+
+    int index = 0;
     for (int i = 0; i < size; i++){
-        if (element == a[i]){
-            return element;
+        if (number == a[i]){
+            index = i;
+            break;
         }
     }
-    return 0;
+    return index;
 }
+
 int equal(const int a[], const int size, const int b[], const int size2){
+    int res = 1;
+    if(size == size2) {
     for (int i = 0; i < size; i++){
-        if (a[i] == b[i]){
-            printf("etot element shoz %d", a[i]);
+        if (a[i] != b[i]){
+            res = 0;
+            break;
         }
     }
+    } else {
+        res = 0;
+    }
+    return res;
 }
+
