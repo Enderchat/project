@@ -2,14 +2,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void set_mass(const int a[],const int size){
+// пиши логические название функций и пременных
+void set_array(int *array, const unsigned int size){
     int i = 0;
-    for(i = 0; i < size; i++){
-        scanf("%d", &a[i]);
+    for(unsigned i = 0; i < size; i++){
+        scanf("%d", &array[i]);
         setbuf(stdin, NULL);
     }
 }
-void set_mass2(const int b[],const int size){
+// delete
+void set_mass2(const int b[],const unsigned int size){
     int i = 0;
     for(i = 0; i < size; i++){
         scanf("%d", &b[i]);
@@ -24,16 +26,17 @@ void print_mass(const int a[],const int size){
     }
     printf("\n");
 }
-int mass_maximum(const int a[],const int size){
-    int maximum = 0;
-    int i = 0;
-    for(i = 0; i < size; i++){
+// 
+int mass_maximum(const int a[],const unsigned int size){
+    int maximum = a[0];
+    for(int unsigned i = 1; i < size; i++){
         if(maximum < a[i]){
            maximum = a[i]; 
         }
     }
     return maximum;
 }
+
 int mass_minimum(const int a[],const int size)
 {
     int minimum = 0;
@@ -48,6 +51,16 @@ int mass_minimum(const int a[],const int size)
 
 void mass_switch(const int a[],const int size)
 {
+    // второй массив не нужен, мы меняем переданный
+    // пример:
+    /*
+     int go = array[0];
+        for (unsigned int i = 0, j = size - 1; i < size / 2; ++i, --j) {
+            array[i] = array[j];
+            array[j] = go;
+            go = array[i + 1]; 
+      
+    */
     int a2[size];
     int length = size - 1;
     for(int i = 0; i < size; i++){
@@ -56,6 +69,7 @@ void mass_switch(const int a[],const int size)
     }
     print_mass(a2, size);
 }
+
 int search_elementa(const int a[],const int size){
     int element = 0; 
     printf("Vvedi element massiva");
