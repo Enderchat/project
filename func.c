@@ -2,31 +2,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void set_mass(const int a[],const int size){
-    int i = 0;
+void set_mass(int *a,const int size){
+    int i;
     for(i = 0; i < size; i++){
-        scanf("%d", &a[i]);
-        setbuf(stdin, NULL);
-    }
-}
-void set_mass2(const int b[],const int size){
-    int i = 0;
-    for(i = 0; i < size; i++){
-        scanf("%d", &b[i]);
+        scanf("%d", a[i]);
         setbuf(stdin, NULL);
     }
 }
 
 void print_mass(const int a[],const int size){
-    int i = 0;
+    int i;
     for(i = 0; i < size; i++){
         printf("%d", a[i]);
     }
     printf("\n");
 }
 int mass_maximum(const int a[],const int size){
-    int maximum = 0;
-    int i = 0;
+    int maximum = a[0];
+    int i;
     for(i = 0; i < size; i++){
         if(maximum < a[i]){
            maximum = a[i]; 
@@ -36,10 +29,9 @@ int mass_maximum(const int a[],const int size){
 }
 int mass_minimum(const int a[],const int size)
 {
-    int minimum = 0;
-    int i = 0;
-    for(i = 0; i < size; i++){
-        if(a[1] < a[i++]){
+    int minimum = a[1];
+    for(int i = 0; i < size; i++){
+        if(minimum > a[i]){
             minimum = a[i];
         }
     }
@@ -56,9 +48,10 @@ void mass_switch(const int a[],const int size)
     }
     print_mass(a2, size);
 }
-int search_elementa(const int a[],const int size){
-    int element = 0; 
-    printf("Vvedi element massiva");
+int search_elementa(const int a[],const int size,int element){
+
+    int element = 0;
+    printf("Vvedi element massiva: ");
     scanf("%d", &element);
     setbuf(stdin,NULL);
     for (int i = 0; i < size; i++){
@@ -68,7 +61,7 @@ int search_elementa(const int a[],const int size){
     }
     return 0;
 }
-void equal(const int a[], const int size, const int b[]){
+int equal(const int a[], const int size, const int b[], const int size2){
     for (int i = 0; i < size; i++){
         if (a[i] == b[i]){
             printf("etot element shoz %d", a[i]);
