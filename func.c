@@ -13,7 +13,7 @@ void set_mass(int *massiv,const int size){
 void print_mass(const int massiv[],const int size){
     int i;
     for(i = 0; i < size; i++){
-        printf("%d", massiv[i]);
+        printf(" %d ", massiv[i]);
     }
     printf("\n");
 }
@@ -78,15 +78,42 @@ int equal(const int massiv[], const int size, const int massiv2[], const int siz
     return res;
 }
 void buble_sort(int massiv[],int size){
-    for(int i = 0 ; i < size; ++i){
-        for(int j = 0; i <size-1; ++j){
-            if (massiv[j] > massiv[j+1]){
-                int b = massiv[i];
-                b = massiv[j];
+    for(int i = 0 ; i < size-1; ++i){
+        for(int j = 0; j <size-i-1; ++j){
+            if (massiv[j] > massiv[j+1]){  
+                int b = massiv[j];
                 massiv[j] = massiv[j + 1];
                 massiv[j + 1] = b;
+                b = massiv[j + 1];
             }
-            
         }
     }
 }
+int search_number(const int massiv[],const int size, const int element){
+    int index = 0;
+    int min = massiv[0];
+    int max = massiv[size-1];
+    int mid = max/2;
+    if(element > massiv[size-1] || element < massiv[0]){
+        mid = 0;
+    }else{
+        while (index != 1)
+        {   
+            if(element >= mid){
+                if(element > mid){
+                min = mid;
+                mid = (min+max)/2;
+                continue;
+                }else{
+                index = 1;
+                
+                }
+            }else{
+                max = mid;
+                mid = max/2;
+                continue;
+                }
+            }
+        }
+        return mid;
+    }

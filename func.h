@@ -11,5 +11,6 @@ int mass_minimum(const int massiv[], const int size);
 int search_elementa(const int massiv[],const int size, const int number);
 int equal(const int massiv[], const int size, const int massiv2[], const int size2);
 void buble_sort(int massiv[],const int size);
+int search_number(const int massiv[],const int size, const int number);
 
 #endif //_FUNC_H_
