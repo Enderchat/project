@@ -22,46 +22,81 @@ int main()
     figure_t tmp = allocate_figure(ROWS_FIGURE, ROWS_FIGURE);
 
     int res = 0;
-    while(res!= Q){
+    int res_down = 0;
+    int res_srav = 0;
+    int nij = 0;
+    int left = 0;
+    int right = 0;
+
+    print_matrix(&matrix_cup);
+    copy_figure(&matrix_figure, &tmp);
+    while(res!= Q)
+    {
+        
         res = getchar();
         setbuf(stdin, NULL);
-        if( res != ENTER) {
-        switch (res)
-        {
-        case A:
-            tmp = copy_figure(&matrix_figure);
-            move_left(&matrix_figure);
-            print_matrix(&matrix_cup);
-            delete_figure(&matrix_cup, &matrix_figure, &tmp);
+        if( res != ENTER) 
+        {   
+            if(res_srav != 1){
+            switch (res)
+            {
+            case A:
 
-        break;
-        case S:
-            tmp = copy_figure(&matrix_figure);
-            move_down(&matrix_figure);
-            print_matrix(&matrix_cup);
-            delete_figure(&matrix_cup, &matrix_figure, &tmp);
-        break;
-        case D:
-            tmp = copy_figure(&matrix_figure);
-            move_right(&matrix_figure);
-            print_matrix(&matrix_cup);
-            delete_figure(&matrix_cup, &matrix_figure, &tmp);
-        break;
-        case W:
-        // povorot
-        break;
-        case SPACE:
-        // fast spusk
-        break;    
-        default:
+                copy_figure(&matrix_figure, &tmp);
+                move_left(&matrix_figure);
 
-     
-        }
-        //random_figure(&matrix_figure);
-        add_figure(&matrix_cup, &matrix_figure);
+            break;
+
+            case S:
+
+                copy_figure(&matrix_figure, &tmp);
+                res_down = move_down(&matrix_figure);
+
+            break;
+
+            case D:
+                
+                copy_figure(&matrix_figure, &tmp);
+                move_right(&matrix_figure);
+
+            break;
+
+            case W:
+
+            // povorot
+
+            break;
+
+            case SPACE:
+
+            // fast spusk
+
+            break; 
+
+            default:
+            break;
+
+            }
+            nij = nij_tochka(&matrix_figure);
+    left = left_tochka(&matrix_figure);
+    right = right_tochka(&matrix_figure);
+    res_srav = proverka_nij(&matrix_cup, nij, left, right);
         }
     }
-// free figure, cup
+    if(res_down == 1){
+        smashboy(&matrix_figure);
+        copy_figure(&matrix_figure, &tmp);
+        nij = nij_tochka(&matrix_figure);
+        left = left_tochka(&matrix_figure);
+        right = right_tochka(&matrix_figure);
+        }
+    print_matrix(&matrix_cup);
+    delete_figure(&matrix_cup, &tmp);
+    //random_figure(&matrix_figure);
+    add_figure(&matrix_cup, &matrix_figure);
+    }
 }
+
+
 
 
