@@ -81,6 +81,8 @@ int main()
     left = left_tochka(&matrix_figure);
     right = right_tochka(&matrix_figure);
     res_srav = proverka_nij(&matrix_cup, nij, left, right);
+        }else{
+            res_down = 1;
         }
     }
     if(res_down == 1){
@@ -89,12 +91,12 @@ int main()
         nij = nij_tochka(&matrix_figure);
         left = left_tochka(&matrix_figure);
         right = right_tochka(&matrix_figure);
-        }
     print_matrix(&matrix_cup);
     delete_figure(&matrix_cup, &tmp);
     //random_figure(&matrix_figure);
     add_figure(&matrix_cup, &matrix_figure);
     }
+}
 }
 
 
