@@ -117,6 +117,6 @@ int sred_arifmeticheskoe(int *mass, int size)
         sred_arif+=mass[i];
         printf("%f", sred_arif);
     }
-    sred_arif = sred_arif/2;
+    sred_arif = sred_arif/size;
     return sred_arif;
 }
