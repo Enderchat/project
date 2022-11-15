@@ -11,6 +11,7 @@ void set_mass(int *mass, int size);
 int summ_mass(int *mass, int size);
 int* odinakovie_element(int *massiv1, int *massiv2, int size1, int size2);
 void buble_sort(int *massiv,int size);
+int sred_arifmeticheskoe(int *mass[], int size);
 
 int main(){
     int a;
@@ -33,6 +34,8 @@ int main(){
     printf("\n");
     mass3 = odinakovie_element(mass1, mass2, SIZE_1, SIZE_2);
     printf_mass(mass3, size3);
+    printf("\n");
+    printf("%n", sred_arif(mass3, size3);
 
 }
 int* calloc_mass(const int size){
@@ -104,4 +107,15 @@ void buble_sort(int *massiv,int size){
             }
         }
     }
+}
+
+int sred_arifmeticheskoe(int *mass[], int size)
+{
+    double sred_arif = 0;
+    for(int i = 0; i < size; ++i)
+    {
+        sred_arif+=mass[i];
+    }
+    sred_arif = sred_arif/2;
+    retrurn sred_arif;
 }
