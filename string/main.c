@@ -7,6 +7,7 @@ char* calloc_stroka(const int size);
 char set_stroka(char *stroka);
 void print_stroka(char *stroka);
 char* delete_space(char *stroka);
+int chifri(*stroka);
 
 int main()
 {
@@ -59,34 +60,46 @@ void print_stroka(char *stroka)
 
 char* delete_space(char *stroka)
 {
-    int len = strlen(stroka)-1;
+    int res = 0;
+    int len = strlen(stroka);
     char *resultat = (char*)calloc(len, sizeof(char));
     int j = 0;
 
+
     for(int i = 0; i < len; ++i){
-        if(stroka[i] != ' ')
+        if(stroka[i] != ' ' && stroka[i] != '\n')
         {
            
            resultat[j]=stroka[i];
            ++j;
            
         }
-        if (resultat[i] == ' ')
+        else if( j > 0 && (stroka[i] == ' ' ||  stroka[i] == '\n'))
         {
-            
-        }
-        {
-            if(resultat != )
-            {
-                printf("%s \n", resultat);
-            }
-            j = 0;
+            printf("%s \n", resultat);
             memset(resultat, '\0', len);
+                        j = 0;
         }
-        if(i == len - 1)
+
+
+    }
+    return resultat;
+}
+
+int chifri(*stroka)
+{
+    int resultat[];
+    int len = strlen(stroka);
+    int j = 0;
+    for(int i = 0; i < len; ++i)
+    {
+        if(stroka[i] >= 0 || stroka[i] <= 9)
         {
-            printf("%s\n", resultat);
+            resultat[j] = stroka[i];
+            printf("%d \n", resultat[i]);
+            j = 0;
         }
     }
+    printf("%s \n", resultat);
     return resultat;
 }
